@@ -1,0 +1,7 @@
+(library
+ (name express)
+ (public_name melange-express)
+ (modes melange)
+ (preprocess
+  (pps melange.ppx))
+ (melange.compile_flags :standard))
