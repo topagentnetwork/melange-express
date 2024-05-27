@@ -28,7 +28,7 @@ let checkProperties = (req, next, properties, k, res) => {
   let rec aux = properties =>
     switch (properties) {
     | [] => k(res)
-    | [p, ...tl] => checkProperty(req, next, p, (_) => aux(tl), res)
+    | [p, ...tl] => checkProperty(req, next, p, _ => aux(tl), res)
     };
   aux(properties);
 };
@@ -170,12 +170,12 @@ App.deleteWithMany(
 );
 
 /* If you have setted up view engine then you can uncomment that "get"
-App.get(app, ~path="/render") @@
-Middleware.from((_, _) => {
-   let dict: Js.Dict.t(string) = Js.Dict.empty();
-   Response.render("index", dict, ());
-});
-*/
+   App.get(app, ~path="/render") @@
+   Middleware.from((_, _) => {
+      let dict: Js.Dict.t(string) = Js.Dict.empty();
+      Response.render("index", dict, ());
+   });
+   */
 
 App.get(app, ~path="/baseUrl") @@
 Middleware.from((next, req) =>
@@ -346,7 +346,7 @@ Middleware.from((next, req) =>
   }
 );
 
-App.get(app, ~path="/redir") @@ 
+App.get(app, ~path="/redir") @@
 Middleware.from((_, _) => Response.redirect("/redir/target"));
 
 App.get(app, ~path="/redircode") @@
@@ -437,8 +437,10 @@ Router.use(router3, Middleware.urlencoded(~extended=true, ()));
 
 module Body = {
   type payload = {. "number": int};
-  let jsonDecoder = json =>
-    Json.Decode.({"number": json |> field("number", int)});
+  let jsonDecoder = json => {
+    open Json.Decode;
+    {"number": json |> field("number", int)};
+  };
   let urlEncodedDecoder = dict => {
     "number": Js.Dict.unsafeGet(dict, "number") |> int_of_string,
   };
