@@ -1,6 +1,6 @@
 (library
  (name express)
- (public_name melange-express)
+ (public_name tan-melange-express)
  (modes melange)
  (libraries
    melange.node)
