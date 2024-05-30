@@ -4,6 +4,7 @@ maintainer: ["Qwick Qwackers"]
 authors: ["The Bilge Rats"]
 license: "MIT"
 homepage: "No I Refuse"
+dev-repo: "git+https://github.com/topagentnetwork/melange-express"
 bug-reports: "JFC just use chortcut"
 depends: [
   "dune" {>= "3.8"}

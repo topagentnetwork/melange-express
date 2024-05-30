@@ -2,7 +2,7 @@
 
 (using melange 0.1)
 
-(name melange-express)
+(name tan-melange-express)
 
 (license "MIT")
 
