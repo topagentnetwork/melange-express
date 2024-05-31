@@ -15,7 +15,7 @@ depends: [
   "odoc" {with-doc}
 ]
 depexts: [
-  ["express"] {npm-version = "^14.16.3"}
+  ["express"] {npm-version = "^4.16.3"}
   ["body-parser"] {npm-version = "^1.18.3"}
 ]
 build: [
