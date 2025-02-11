@@ -213,7 +213,6 @@ module Request = {
 module Response = {
   type t;
   module StatusCode = {
-    [@deriving jsConverter]
     type t =
       | [@mel.as 200] Ok
       | [@mel.as 201] Created
@@ -273,8 +272,6 @@ module Response = {
       | [@mel.as 508] LoopDetected
       | [@mel.as 510] NotExtended
       | [@mel.as 511] NetworkAuthenticationRequired;
-    let fromInt = tFromJs;
-    let toInt = tToJs;
   };
   [@mel.send.pipe: t]
   external cookie_: (string, Js.Json.t, 'a) => unit = "cookie";
@@ -365,10 +362,8 @@ module Response = {
   [@mel.send.pipe: t] external sendJson: Js.Json.t => complete = "json";
   [@mel.send.pipe: t] external sendBuffer: Node.Buffer.t => complete = "send";
   [@mel.send.pipe: t] external sendArray: array('a) => complete = "send";
-  [@mel.send.pipe: t] external sendRawStatus: int => complete = "sendStatus";
-  let sendStatus = statusCode => sendRawStatus(StatusCode.toInt(statusCode));
-  [@mel.send.pipe: t] external rawStatus: int => t = "status";
-  let status = statusCode => rawStatus(StatusCode.toInt(statusCode));
+  [@mel.send.pipe: t] external sendStatus: StatusCode.t => complete = "sendStatus";
+  [@mel.send.pipe: t] external status: StatusCode.t => t = "status";
   [@mel.send.pipe: t] [@ocaml.deprecated "Use sendJson instead`"]
   external json: Js.Json.t => complete = "json";
   [@mel.send.pipe: t]
