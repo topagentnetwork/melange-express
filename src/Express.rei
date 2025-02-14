@@ -159,64 +159,64 @@ module Response: {
   type t;
   module StatusCode: {
     type t =
-      | Ok
-      | Created
-      | Accepted
-      | NonAuthoritativeInformation
-      | NoContent
-      | ResetContent
-      | PartialContent
-      | MultiStatus
-      | AleadyReported
-      | IMUsed
-      | MultipleChoices
-      | MovedPermanently
-      | Found
-      | SeeOther
-      | NotModified
-      | UseProxy
-      | SwitchProxy
-      | TemporaryRedirect
-      | PermanentRedirect
-      | BadRequest
-      | Unauthorized
-      | PaymentRequired
-      | Forbidden
-      | NotFound
-      | MethodNotAllowed
-      | NotAcceptable
-      | ProxyAuthenticationRequired
-      | RequestTimeout
-      | Conflict
-      | Gone
-      | LengthRequired
-      | PreconditionFailed
-      | PayloadTooLarge
-      | UriTooLong
-      | UnsupportedMediaType
-      | RangeNotSatisfiable
-      | ExpectationFailed
-      | ImATeapot
-      | MisdirectedRequest
-      | UnprocessableEntity
-      | Locked
-      | FailedDependency
-      | UpgradeRequired
-      | PreconditionRequired
-      | TooManyRequests
-      | RequestHeaderFieldsTooLarge
-      | UnavailableForLegalReasons
-      | InternalServerError
-      | NotImplemented
-      | BadGateway
-      | ServiceUnavailable
-      | GatewayTimeout
-      | HttpVersionNotSupported
-      | VariantAlsoNegotiates
-      | InsufficientStorage
-      | LoopDetected
-      | NotExtended
-      | NetworkAuthenticationRequired;
+      | [@mel.as 200] Ok
+      | [@mel.as 201] Created
+      | [@mel.as 202] Accepted
+      | [@mel.as 203] NonAuthoritativeInformation
+      | [@mel.as 204] NoContent
+      | [@mel.as 205] ResetContent
+      | [@mel.as 206] PartialContent
+      | [@mel.as 207] MultiStatus
+      | [@mel.as 208] AleadyReported
+      | [@mel.as 226] IMUsed
+      | [@mel.as 300] MultipleChoices
+      | [@mel.as 301] MovedPermanently
+      | [@mel.as 302] Found
+      | [@mel.as 303] SeeOther
+      | [@mel.as 304] NotModified
+      | [@mel.as 305] UseProxy
+      | [@mel.as 306] SwitchProxy
+      | [@mel.as 307] TemporaryRedirect
+      | [@mel.as 308] PermanentRedirect
+      | [@mel.as 400] BadRequest
+      | [@mel.as 401] Unauthorized
+      | [@mel.as 402] PaymentRequired
+      | [@mel.as 403] Forbidden
+      | [@mel.as 404] NotFound
+      | [@mel.as 405] MethodNotAllowed
+      | [@mel.as 406] NotAcceptable
+      | [@mel.as 407] ProxyAuthenticationRequired
+      | [@mel.as 408] RequestTimeout
+      | [@mel.as 409] Conflict
+      | [@mel.as 410] Gone
+      | [@mel.as 411] LengthRequired
+      | [@mel.as 412] PreconditionFailed
+      | [@mel.as 413] PayloadTooLarge
+      | [@mel.as 414] UriTooLong
+      | [@mel.as 415] UnsupportedMediaType
+      | [@mel.as 416] RangeNotSatisfiable
+      | [@mel.as 417] ExpectationFailed
+      | [@mel.as 418] ImATeapot
+      | [@mel.as 421] MisdirectedRequest
+      | [@mel.as 422] UnprocessableEntity
+      | [@mel.as 423] Locked
+      | [@mel.as 424] FailedDependency
+      | [@mel.as 426] UpgradeRequired
+      | [@mel.as 428] PreconditionRequired
+      | [@mel.as 429] TooManyRequests
+      | [@mel.as 431] RequestHeaderFieldsTooLarge
+      | [@mel.as 451] UnavailableForLegalReasons
+      | [@mel.as 500] InternalServerError
+      | [@mel.as 501] NotImplemented
+      | [@mel.as 502] BadGateway
+      | [@mel.as 503] ServiceUnavailable
+      | [@mel.as 504] GatewayTimeout
+      | [@mel.as 505] HttpVersionNotSupported
+      | [@mel.as 506] VariantAlsoNegotiates
+      | [@mel.as 507] InsufficientStorage
+      | [@mel.as 508] LoopDetected
+      | [@mel.as 510] NotExtended
+      | [@mel.as 511] NetworkAuthenticationRequired;
   };
 
   let cookie:
